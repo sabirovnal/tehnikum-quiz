@@ -1,45 +1,30 @@
 import React from "react";
+import { Header } from "../components/Header";
+import { AppInput } from "../components/AppInput";
+import { AppButton } from "../components/AppButton";
 
 const Welcome = () => {
   return (
     <div className="container">
       <div className="wrapper">
-        <div className="welcome">
-          <h1>Добро пожаловать в квиз от лучшего учебного центра</h1>
-          <form className="welcome__form">
-            <label className="input-wrapper" htmlFor="username">
-              Ваше имя
-              <input
-                required
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Ваш ответ"
-              />
-              <span id="error-message">
-                Введите номер в правильном формате например
-              </span>
-            </label>
-            <label className="input-wrapper" htmlFor="username">
-              Ваш номер
-              <input
-                required
-                type="tel"
-                name="phone"
-                id="phone"
-                placeholder="+998 9- --- -- -- "
-                pattern="^(?:\+998)?(?:\d{2})?(?:\d{7})$"
-              />
-              <span id="error-message">Введите номер в правильном формате</span>
-            </label>
-            <button disabled type="submit" id="next-btn">
-              Далее
-            </button>
+      <form className="welcome__form">
+        <Header text="Добро пожаловать в квиз от лучшего учебного центра" />
+            <AppInput
+             inputText="Ваше Имя" 
+             errorText=" Введите Имя в правильном формате "
+             inputPlaceholder="Введите ваше имя"
+             inputType="text"
+             />
+            <AppInput inputText="Ваш Номер" 
+            errorText=" Введите номер в правильном формате например "
+            inputPlaceholder="Введите ваш номер"
+            inputType="tel"
+            />
+            <AppButton isDisabled={true} /> 
           </form>
         </div>
       </div>
-    </div>
-  );
-};
+  )
+}
 
 export default Welcome;
